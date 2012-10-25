@@ -7,7 +7,6 @@ class Conversation < ActiveRecord::Base
 	validates_presence_of :subject
 
 	before_validation :clean
-  default_scope { where(university_id: University.current_id) if University.current_id}
   scope :participant, lambda {|participant|
     select('DISTINCT conversations.*').
     where('notifications.type'=> Message.name).
