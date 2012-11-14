@@ -54,7 +54,7 @@ class Mailbox
   #Same as conversations({:mailbox_type => 'inbox'})
   def inbox(options={})
     options = options.merge(:mailbox_type => 'inbox')
-    return self.conversations(options).paginate(:per_page => 5, :page => params[:page])
+    return self.conversations(options)
   end
 
   #Returns the conversations in the sentbox of messageable
@@ -62,7 +62,7 @@ class Mailbox
   #Same as conversations({:mailbox_type => 'sentbox'})
   def sentbox(options={})
     options = options.merge(:mailbox_type => 'sentbox')
-    return self.conversations(options).paginate(:per_page => 5, :page => params[:page])
+    return self.conversations(options)
   end
 
   #Returns the conversations in the trash of messageable
